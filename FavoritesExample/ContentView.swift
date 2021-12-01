@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+//
+// NOTE:
+// In your app delegate or 'App' class set .environmentObject(ItemStore.shared) in the contentView
+//
+
+
+// This could be a struct also.
 class Item {
     var id: UUID
     var name: String
@@ -17,6 +24,7 @@ class Item {
     }
 }
 
+// Our database. The IDs must persist across launches
 var sampleItems1 = [Item(id: UUID(uuidString: "bf85d038-cb02-494b-8cd2-e665d72b30f4")!, name: "item1"),
                     Item(id: UUID(uuidString: "923fda1b-d58d-4aec-b279-a7bf21b5b354")!, name: "item2"),
                     Item(id: UUID(uuidString: "c3fc1ca6-97b0-4717-8d67-ce5fca05da5a")!, name: "item3"),
@@ -24,6 +32,7 @@ var sampleItems1 = [Item(id: UUID(uuidString: "bf85d038-cb02-494b-8cd2-e665d72b3
                     Item(id: UUID(uuidString: "4c7fff89-0dc2-457f-806a-d87c384f56f0")!, name: "item5"),
                     Item(id: UUID(uuidString: "fb391cc9-4a48-4d7c-b00b-4cd18b18f460")!, name: "item6")]
 
+// The main class that handles the items & favorites
 class ItemStore: ObservableObject {
     @Published private(set) var items: [Item] = []
     @Published private(set) var favoriteItemIds: [UUID] = []
