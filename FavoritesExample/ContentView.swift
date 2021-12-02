@@ -130,6 +130,7 @@ struct ItemView: View {
     }
 }
 
+// This is duplicated. we could be using the ItemView with little modifications
 struct FavoriteItemView: View {
     @State var item: Item
     var onTap: () -> ()
