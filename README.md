@@ -1,3 +1,3 @@
 # FavoritesExample
 
-test1
+test2
